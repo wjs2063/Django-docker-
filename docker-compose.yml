@@ -1,0 +1,26 @@
+version: "3"
+  
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_container
+    command: --default-authentication-plugin=mysql_native_password 
+    ports:
+      - "7000:3306"
+    # volumes:
+      # - /Users/pn_jh/Desktop/DockerProjects/jango-mysql-db:/var/lib/mysql/database/
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootmysql
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=mysql
+      - MYSQL_DATABASE=mysql
+
+  web:
+    build: .
+    container_name: django-container
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
