@@ -11,4 +11,6 @@ RUN pip install --upgrade pip &&\
     pip install numpy &&\
     pip install pandas &&\ 
     pip install beautifulsoup4 &&\
-    apt-get -y install sqlitebrowser
+    apt-get -y install sqlitebrowser &&|
+    pip install pymysql &&|
+    pip install requests
