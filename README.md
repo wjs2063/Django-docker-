@@ -33,41 +33,41 @@ vscode 스토어에서 docker development 설치후 control+F1 누른후 attach 
 
 ## Projects
 
-root
-|______ config 
-|
-|______ pybo
-|
-|______ templates
-|
-|______ Dockerfile
-|
-|______ requirements.txt
-|
-|______ manage.py 
+root  
+|______ config   
+|  
+|______ pybo  
+|  
+|______ templates  
+|  
+|______ Dockerfile  
+|  
+|______ requirements.txt  
+|  
+|______ manage.py   
+
+  
+
+pybo  
+|  
+|_____ crawl.py : lotto추첨사이트에서 역대당첨번호를 가져와 각번호의 당첨확률을계산후 random.choice 함수를 통해 추첨  
 
 
+Dockerfile  
+|  
+|______  컨테이너 환경생성시 필요한 라이브러리 및 파일정의   
 
-pybo
-|
-|_____ crawl.py : lotto추첨사이트에서 역대당첨번호를 가져와 각번호의 당첨확률을계산후 random.choice 함수를 통해 추첨
+requirements.txt  
+|  
+|______  필요한 라이브러리 및 설치 버전 정의  
 
+templates  
+|  
+|_______  client 에게 보여줄 출력화면 , html로작성   
 
-Dockerfile
-|
-|______  컨테이너 환경생성시 필요한 라이브러리 및 파일정의 
-
-requirements.txt
-|
-|______  필요한 라이브러리 및 설치 버전 정의
-
-templates
-|
-|_______  client 에게 보여줄 출력화면 , html로작성 
-
-manage.py
-|
-|_______ 우리의 서버담당 파일
+manage.py  
+|  
+|_______ 우리의 서버담당 파일  
 
 
 
