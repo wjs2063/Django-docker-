@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from random import choices,sample
 import pymysql
-
+'''
 conn = pymysql.connect(host='localhost',
                        user='root',
                        password='Gusdl7797@',
@@ -12,10 +12,10 @@ conn = pymysql.connect(host='localhost',
 with conn:
     with conn.cursor() as cur:
             cur.execute('CREATE DATABASE IF NOT EXISTS testdb')
-        
-url="https://www.dhlottery.co.kr/gameResult.do?method=statByNumber"
+'''
 
-def crawling(url:str)->tuple:
+
+def crawling(n=10,url="https://www.dhlottery.co.kr/gameResult.do?method=statByNumber")->tuple:
     #해당 url 의 모든 html 정보를 가져옴
     response = requests.get(url)
     html=response.text
@@ -34,17 +34,12 @@ def crawling(url:str)->tuple:
         lottotable[key]=lottotable[key]/cnt
     lottonumber=[i for i in range(1,45+1)]
     weights=lottotable.values()
-    return lottonumber,weights
-lottolist=[]
-
-lottonumber,weights=crawling(url)
-
-n=int(input().strip())
-
-while n>1:
-    arr=choices(lottonumber,weights=weights,k=6)
-    # 중복확인
-    if len(arr)-len(list(set(arr)))>=1:
-        continue
-    lottolist.append(sorted(arr))
-    n-=1
+    lottolist=[]
+    while n>=1:
+        arr=choices(lottonumber,weights=weights,k=6)
+        # 중복확인
+        if len(arr)-len(list(set(arr)))>=1:
+            continue
+        lottolist.append(sorted(arr))
+        n-=1
+    return lottolist

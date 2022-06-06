@@ -18,5 +18,5 @@ from django.urls import path,include
 # from pybo import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('jhlotto/',include('pybo.urls')),
+    path('hellolotto/',include('pybo.urls')),
 ]

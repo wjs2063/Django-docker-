@@ -1,0 +1,5 @@
+<h1>오늘의 로또번호는 </h1>
+{% for lotto in lottonumber%}
+    <p>{{forloop.counter}}번째</p>
+    <p>{{lotto}}</p>
+{% endfor %}
