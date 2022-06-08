@@ -1,0 +1,9 @@
+<h1> 구매할 금액을 입력하세요 (1000원단위)!</h1>
+<form action="{% url 'result'%}" method="POST">
+    {% csrf_token %}
+    <input type="number" name="amount" placeholder="금액"/>
+    <br/>
+    <br/>
+    <button type="submit">체크하기</button>
+</form>
+
